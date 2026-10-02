@@ -17,7 +17,7 @@
 //     Console.WriteLine($"Кабинет {room}");
 // }
 
-// //Шаг 3. Вложенные циклы
+//Шаг 3. Вложенные циклы
 // Console.WriteLine();
 // int totalWeeks = 3;
 
@@ -91,24 +91,47 @@
 // .ToList();
 // Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
 
-Console.WriteLine();
-Console.WriteLine("Вариант 4");
-int N = 5;
+// Console.WriteLine();
+// Console.WriteLine("Вариант 4");
+// int N = 5;
 
-for (int i = 1; i <= N; i++)
-{
-    for (int m = 1; m <= i; m++)
-    {
-        Console.Write("*");
+// for (int i = 1; i <= N; i++)
+// {
+//     for (int m = 1; m <= i; m++)
+//     {
+//         Console.Write("*");
+//     }
+//     Console.WriteLine();
+// }
+
+// Console.WriteLine();
+// Console.WriteLine("Вариант 5");
+// for (int num = 1; num <= 100; num++){
+//     if (num % 3 == 0 && num % 5 == 0){
+//         Console.WriteLine(num);
+//         break;
+//     }
+// }
+
+//Дополнительное задание.Тренировочный план.
+Console.Write("Введите общее количество недель тренировок: ");
+int N = int.Parse(Console.ReadLine());
+bool enough = false;
+int count = 0;
+
+for (int week = 1; week <= N && !enough; week++) {
+    for (int day = 1; day <= 7; ++day){
+        if (day == 7) {
+           continue; 
+        }; count++;
+        if (count == 20){
+            enough = true;
+            Console.WriteLine($"Набрано 20 тренировочных дней. Остановка на неделе '{week}', день '{day}'");
+            break;
+        }
     }
-    Console.WriteLine();
 }
 
-Console.WriteLine();
-Console.WriteLine("Вариант 5");
-for (int num = 1; num <= 100; num++){
-    if (num % 3 == 0 && num % 5 == 0){
-        Console.WriteLine(num);
-        break;
-    }
+if (!enough){
+    Console.WriteLine($"За {N} недель не удалось набрать 20 тренировочных дней");
 }
